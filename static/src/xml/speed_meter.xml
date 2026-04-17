@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="speed_meter.SpeedMeterDashboard">
+        <div class="o_speed_meter_dashboard">
+            <div class="o_speed_meter_card">
+                <div class="o_speed_meter_header">
+                    <h1>Desktop Speed Meter</h1>
+                    <p>Interactive backend speed gauge</p>
+                </div>
+
+                <div class="o_speed_meter_gauge">
+                    <div class="o_speed_meter_arc"></div>
+                    <div class="o_speed_meter_ticks">
+                        <span class="tick tick_1">0</span>
+                        <span class="tick tick_2">30</span>
+                        <span class="tick tick_3">60</span>
+                        <span class="tick tick_4">90</span>
+                        <span class="tick tick_5">120</span>
+                        <span class="tick tick_6">150</span>
+                        <span class="tick tick_7">180</span>
+                    </div>
+                    <div class="o_speed_meter_needle_wrap">
+                        <div class="o_speed_meter_needle" t-att-style="'transform: rotate(' + props.rotation + 'deg);'"></div>
+                        <div class="o_speed_meter_center"></div>
+                    </div>
+                    <div class="o_speed_meter_reading">
+                        <span t-esc="state.speed"/>
+                        <small>km/h</small>
+                    </div>
+                </div>
+
+                <div class="o_speed_meter_controls">
+                    <button type="button" class="btn btn-secondary" t-on-click="decreaseSpeed">- Slow Down</button>
+                    <button type="button" class="btn btn-primary" t-on-click="increaseSpeed">+ Speed Up</button>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

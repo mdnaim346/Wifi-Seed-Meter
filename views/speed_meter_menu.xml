@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_speed_meter_dashboard" model="ir.actions.client">
+        <field name="name">Speed Meter</field>
+        <field name="tag">speed_meter_dashboard</field>
+    </record>
+
+    <menuitem
+        id="menu_speed_meter_root"
+        name="Speed Meter"
+        sequence="10"
+        web_icon="speed_meter,static/description/icon.png"
+    />
+
+    <menuitem
+        id="menu_speed_meter_dashboard"
+        name="Desktop Meter"
+        parent="menu_speed_meter_root"
+        action="action_speed_meter_dashboard"
+        sequence="1"
+    />
+</odoo>

@@ -1,0 +1,147 @@
+.o_speed_meter_dashboard {
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    min-height: 100%;
+}
+
+.o_speed_meter_card {
+    width: 100%;
+    max-width: 720px;
+    padding: 32px;
+    border-radius: 24px;
+    color: #fff;
+    background: rgba(15, 23, 42, 0.9);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.o_speed_meter_header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.o_speed_meter_header h1 {
+    margin: 0 0 8px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.o_speed_meter_header p {
+    margin: 0;
+    color: #cbd5e1;
+}
+
+.o_speed_meter_gauge {
+    position: relative;
+    width: 360px;
+    height: 220px;
+    margin: 0 auto 24px;
+}
+
+.o_speed_meter_arc {
+    position: absolute;
+    inset: 0;
+    border-top-left-radius: 220px;
+    border-top-right-radius: 220px;
+    border: 18px solid transparent;
+    border-top-color: #22c55e;
+    border-left-color: #f59e0b;
+    border-right-color: #ef4444;
+}
+
+.o_speed_meter_ticks .tick {
+    position: absolute;
+    font-size: 14px;
+    color: #e2e8f0;
+    font-weight: 600;
+}
+
+.tick_1 { left: 2px; top: 180px; }
+.tick_2 { left: 34px; top: 92px; }
+.tick_3 { left: 92px; top: 26px; }
+.tick_4 { left: 166px; top: 0; }
+.tick_5 { right: 94px; top: 26px; }
+.tick_6 { right: 36px; top: 92px; }
+.tick_7 { right: 2px; top: 180px; }
+
+.o_speed_meter_needle_wrap {
+    position: absolute;
+    left: 50%;
+    bottom: 26px;
+    width: 0;
+    height: 0;
+}
+
+.o_speed_meter_needle {
+    position: absolute;
+    left: -4px;
+    bottom: 0;
+    width: 8px;
+    height: 140px;
+    border-radius: 8px;
+    background: linear-gradient(180deg, #f87171, #dc2626);
+    transform-origin: center bottom;
+    transition: transform 0.25s ease;
+}
+
+.o_speed_meter_center {
+    position: absolute;
+    left: -14px;
+    bottom: -14px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #f8fafc;
+    box-shadow: 0 0 0 8px rgba(248, 250, 252, 0.15);
+}
+
+.o_speed_meter_reading {
+    position: absolute;
+    left: 50%;
+    bottom: 48px;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-weight: 700;
+}
+
+.o_speed_meter_reading span {
+    font-size: 42px;
+    line-height: 1;
+}
+
+.o_speed_meter_reading small {
+    font-size: 16px;
+    color: #cbd5e1;
+}
+
+.o_speed_meter_controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+@media (max-width: 768px) {
+    .o_speed_meter_card {
+        padding: 20px;
+    }
+
+    .o_speed_meter_gauge {
+        width: 290px;
+        height: 190px;
+    }
+
+    .o_speed_meter_needle {
+        height: 116px;
+    }
+
+    .tick_1 { left: 0; top: 152px; }
+    .tick_2 { left: 22px; top: 78px; }
+    .tick_3 { left: 70px; top: 22px; }
+    .tick_4 { left: 132px; top: 0; }
+    .tick_5 { right: 72px; top: 22px; }
+    .tick_6 { right: 24px; top: 78px; }
+    .tick_7 { right: 0; top: 152px; }
+}
