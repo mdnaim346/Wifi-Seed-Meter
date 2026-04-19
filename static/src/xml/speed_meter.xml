@@ -4,8 +4,12 @@
         <div class="o_speed_meter_dashboard">
             <div class="o_speed_meter_card">
                 <div class="o_speed_meter_header">
-                    <h1>Desktop Speed Meter</h1>
-                    <p>Interactive backend speed gauge</p>
+                    <div class="o_speed_meter_live_tag">
+                        <i class="fa fa-circle text-success me-1"/>
+                        LIVE DATA
+                    </div>
+                    <h1>WiFi Speed Meter</h1>
+                    <p>Real-time network diagnostics</p>
                 </div>
 
                 <div class="o_speed_meter_gauge">
@@ -20,18 +24,35 @@
                         <span class="tick tick_7">180</span>
                     </div>
                     <div class="o_speed_meter_needle_wrap">
-                        <div class="o_speed_meter_needle" t-att-style="'transform: rotate(' + props.rotation + 'deg);'"></div>
+                        <div class="o_speed_meter_needle" t-att-f-style="'transform: rotate(' + (state.speed - 90) + 'deg);'"></div>
                         <div class="o_speed_meter_center"></div>
                     </div>
                     <div class="o_speed_meter_reading">
                         <span t-esc="state.speed"/>
-                        <small>km/h</small>
+                        <small>Mbps</small>
+                    </div>
+                </div>
+
+                <div class="o_speed_meter_stats_grid">
+                    <div class="o_stat_item">
+                        <span class="label">Ping</span>
+                        <span class="value"><t t-esc="state.ping"/> <small>ms</small></span>
+                    </div>
+                    <div class="o_stat_item active">
+                        <span class="label">Upload</span>
+                        <span class="value"><t t-esc="state.upload"/> <small>Mbps</small></span>
+                    </div>
+                    <div class="o_stat_item">
+                        <span class="label">Jitter</span>
+                        <span class="value"><t t-esc="state.jitter"/> <small>ms</small></span>
                     </div>
                 </div>
 
                 <div class="o_speed_meter_controls">
-                    <button type="button" class="btn btn-secondary" t-on-click="decreaseSpeed">- Slow Down</button>
-                    <button type="button" class="btn btn-primary" t-on-click="increaseSpeed">+ Speed Up</button>
+                    <button type="button" class="btn btn-outline-light rounded-pill px-4" t-on-click="toggleTest">
+                        <t t-if="state.isRunning">Stop Test</t>
+                        <t t-else="">Start Test</t>
+                    </button>
                 </div>
             </div>
         </div>
